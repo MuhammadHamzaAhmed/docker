@@ -3,7 +3,7 @@ Usage: main.py
 
 Start flask api at port 5000
 """
-from nets_x_map import *
+from example_module import *
 import traceback
 
 if __name__ == '__main__':

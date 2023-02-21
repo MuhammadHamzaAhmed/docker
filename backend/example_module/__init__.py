@@ -31,3 +31,7 @@ app.config['SQLALCHEMY_BINDS'] = {
 }
 
 db = SQLAlchemy(app)
+
+@app.route("/")
+def healthCheck():
+    return "working"

@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  form_db:
+    image: mysql:latest
+    restart: always
+    container_name: Form_DATABASE_Container
+    ports:
+      - "3307:3307"
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: FormDB
+    volumes:
+      - ./db/form.sql:/docker-entrypoint-initdb.d/form.sql
+
+  backend:
+    container_name: Form_Flask_Container
+    restart: always
+    build: backend
+    ports:
+      - "5010:5000"
+    volumes:
+      - ./backend:/backend
